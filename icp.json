@@ -1,0 +1,13 @@
+{
+  "company": "Attio",
+  "target_segment": "startups",
+  "gtm_motion": "PLG",
+  "pain_points": [
+    "API_integration",
+    "lack_of_flexibility",
+    "data_insights",
+    "customization"
+  ],
+  "differentiation": "API_integration",
+  "differentiation_status": "hypothesis"
+}
