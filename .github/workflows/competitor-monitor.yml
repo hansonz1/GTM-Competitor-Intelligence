@@ -35,3 +35,14 @@ jobs:
             folk_????-??-??_??-??-??.json
             folk_????-??-??_??-??-??_??????.json
           key: folk-snapshot-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Run Gemini GTM analysis
+        run: python ai_analyzer.py
+        env: 
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        if: ${{ hashFiles('folk_change_report.json') != '' }}
+      - name: Upload GTM battlecard
+        uses: actions/upload-artifact@v7
+        with: 
+          name: gtm-battlecard
+          path: battle_card.json  
+          if-no-files-found: ignore
