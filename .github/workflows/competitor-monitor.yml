@@ -17,3 +17,21 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Verify Python environment
         run: python --version
+      - name: Restore previous snapshots
+        uses: actions/cache/restore@v6
+        with:
+          path: |
+            folk_????-??-??_??-??-??.json
+            folk_????-??-??_??-??-??_??????.json
+          key: folk-snapshot-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            folk-snapshot-
+      - name: Run competitor collector
+        run: python collector.py
+      - name: Save latest snapshots
+        uses: actions/cache/save@v6
+        with: 
+          path: |
+            folk_????-??-??_??-??-??.json
+            folk_????-??-??_??-??-??_??????.json
+          key: folk-snapshot-${{ github.run_id }}-${{ github.run_attempt }}
