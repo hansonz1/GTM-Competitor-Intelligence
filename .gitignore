@@ -1,0 +1,4 @@
+.venv/
+.env
+folk_*.json
+folk_relevance_report.json
