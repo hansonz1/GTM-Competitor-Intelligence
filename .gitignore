@@ -6,3 +6,4 @@ battle_card.json
 hypothetical_battle_card.json
 mock_battle_card.json
 test_change_report.json
+__pycache__/

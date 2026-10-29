@@ -73,3 +73,5 @@ change_report = {
 }
 with open("folk_change_report.json", "w") as file:
     json.dump(change_report, file)
+
+print(f"New Updates Detected: {change_report['new_updates_count']}")
