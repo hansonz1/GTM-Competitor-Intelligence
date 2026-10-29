@@ -19,6 +19,7 @@ new_updates = change_report["new_updates"]
 role_prompt = "You are a senior Product Marketing Manager specializing in competitive intelligence and go-to-market positioning."
 context_prompt = f"Our company is {icp['company']}, targeting PLG startups. Our differentiation is {icp['differentiation']}. Its evidence status is {icp['differentiation_status']}."
 competitor_update = "\n".join(new_updates)
+competitor_name = change_report["competitor_name"]
 input_evidence_status = change_report.get("evidence_status","unverified")
 
 task_prompt = (
@@ -65,5 +66,18 @@ if analysis_data.get("evidence_status") == input_evidence_status:
 else:
     print("Evidence status mismatch")
     raise ValueError("AI evidence status does not match input data")
+
+battle_card = {
+    "competitor": competitor_name,
+    "potential_impact": analysis_data.get("potential_impact"),
+    "confidence": analysis_data.get("confidence"),
+    "evidence_status": input_evidence_status,
+    "recommended_action": analysis_data.get("recommended_action"),
+    "evidence_gaps": analysis_data.get("evidence_gaps"),
+    "competitive_updates": new_updates
+}
+
+with open("battle_card.json", "w") as file:
+    json.dump(battle_card, file, indent=2)
 
 print(response.text)
