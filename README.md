@@ -1,11 +1,11 @@
-## Project Title: 
+## Project Title
 GTM Competitive Intelligence & Sales Analysis
 
-## Value Proposition:
+## Value Proposition
 This project is an AI-powered system designed for product marketing and GTM leaders. Using Attio as a case study, it monitors competitor's product updates with evidenced analysis of potential impact and recommendations, and assists the Product Marketing Managers (PMM) to make more efficient and informed positioning decisions. 
 
-## Problem Statement:
-The traditional workflow requires a close track of competitors' product updates, an analysis from PMMs or competitive intelligence teams, pass on to the marketing team to adjust positioning changes, and eventually give updated sales enablement materials to the sales team. This process is time-consuming and prone to errors, which may lead to outdated marketing strategy and inaccurate sales messaging.  
+## Problem Statement
+The traditional workflow involves monitoring competitors' product updates, analyzing their potential impact, and passing findings to marketing and sales teams to update positioning and sales enablement materials. This process is time-consuming and prone to errors, which may lead to outdated marketing strategy and inaccurate sales messaging.  
 
 If the update is delayed, or the process is taking too much time, then the sales representatives cannot give more precise sales messaging that reflect the current competitive landscape.
 
@@ -56,13 +56,13 @@ python ai_analyzer.py
 If no new competitor updates are detected, the analyzer skips the AI analysis to avoid unnecessary use of token.
 
 ## Testing & Validation
-1. No-Change Test:
+1. *No-Change Test*:
 The system was tested with real Folk changelog and successfully skipped unnecessary Gemini API calls.
 
-2. Positive Path Test:
+2. *Positive Path Test*:
 A synthetic competitor update was used to test the Gemini Analyzer, and the system successfully generated a structured JSON Battlecard.
 
-3. Test Limitation:
+3. *Test Limitation*:
 The synthetic update is hypothetical and does not represent a verified product announcement.
 
 ## Limitations & Future Improvements
