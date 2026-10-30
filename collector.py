@@ -15,7 +15,7 @@ except requests.exceptions.RequestException as error:
 soup = BeautifulSoup(response.text, "html.parser")
 update_elements = soup.find_all("h2", class_="h2-changelog")
 if len(update_elements) == 0:
-    print("No updates found")
+    print("Extraction failed: No changelog headings found. Website structure may have changed.")
     sys.exit(1)
 update_titles = []
 for element in update_elements:
