@@ -1,0 +1,28 @@
+name: Gemini Positive Path Test
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v6
+        - name: Set up Python
+          uses: actions/setup-python@v6
+          with:
+            python-version: '3.12'
+        - name: Dependencies
+          run: python -m pip install -r requirements.txt
+        - name: Test command
+          run: python ai_analyzer.py tests/fixtures/test_change_report.json
+          env:
+            GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        - name: Artifact action
+          uses: actions/upload-artifact@v7
+          with:
+            name: hypothetical-gtm-battlecard
+            path: test_battle_card.json
+            if-no-files-found: error
+       

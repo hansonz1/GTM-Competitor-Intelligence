@@ -5,8 +5,14 @@ import sys
 with open("icp.json", "r") as file:
     icp = json.load(file)
 
-with open("folk_change_report.json", "r") as file:
+if len(sys.argv) > 1:
+    input_filename =sys.argv[1]
+else:
+    input_filename = "folk_change_report.json"
+
+with open(input_filename, "r") as file:
     change_report = json.load(file)
+
 if change_report["has_new_updates"] is False:
     print("No new updates. Skipping AI analysis.")
     sys.exit(0)
@@ -77,7 +83,12 @@ battle_card = {
     "competitive_updates": new_updates
 }
 
-with open("battle_card.json", "w") as file:
+if input_filename == "tests/fixtures/test_change_report.json":    
+    output_filename = "test_battle_card.json"
+else:
+    output_filename = "battle_card.json"
+
+with open(output_filename, "w") as file:
     json.dump(battle_card, file, indent=2)
 
 print(response.text)

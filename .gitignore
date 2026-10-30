@@ -7,3 +7,5 @@ hypothetical_battle_card.json
 mock_battle_card.json
 test_change_report.json
 __pycache__/
+test_battle_card.json
+!tests/fixtures/test_change_report.json
